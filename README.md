@@ -19,10 +19,10 @@ Installation:
 - copy the js and vbs file in a location visible to node.js
 - install formidable if required: npm install formidable
 
-Running the service:
+Run the service:
 -command: node macroService.js <path to temp folder>
 
-Accessing the service programatically:
+Access the service programatically:
 - client/runRemoteMacro.bat
 
 Test artifacts:
