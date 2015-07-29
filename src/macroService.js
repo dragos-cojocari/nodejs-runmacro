@@ -18,18 +18,26 @@ var child;
 var crypto = require('crypto');
 var fs = require('fs'); 
 
-	// read the temp folder
-	var tmpFolder = process.argv[2];
-	if ( tmpFolder == undefined)
-	{
-		console.log("No temp folder specified.\nSyntax is: node chartServer.js <full path to temp folder>");
-		return;
-	}
-	console.log("Using temp folder: " + tmpFolder);
+// read the temp folder
+var tmpFolder = process.argv[2];
+if ( tmpFolder == undefined)
+{
+	console.log("No temp folder specified.\nSyntax is: node chartServer.js <full path to temp folder>");
+	return;
+}
+console.log("Using temp folder: " + tmpFolder);
 
-	// the server function
-	var server = http.createServer(function (request, response) {
-  
+// the server function
+var server = http.createServer(serverFunc);
+
+//Listen on port 8000, IP defaults to 127.0.0.1
+server.listen(8000);
+
+// Put a friendly message on the terminal
+console.log("Server running at http://127.0.0.1:8000/");
+
+	
+function serverFunc(request, response) {
 	// only allow POST 
 	if (request.method !== 'POST') { 
 		response.writeHead(405); 
@@ -58,7 +66,9 @@ var fs = require('fs');
 		  console.error(err.message);
 		  return;
 		}
-		console.log(util.inspect({fields: fields, files: files}));
+		
+		console.log("Request received " + new Date());
+		//console.log(util.inspect({fields: fields, files: files}));
 		
 		if ( files.document == undefined || files.document.size == 0 || fields.macro == undefined || fields.macro == "")
 		{
@@ -67,6 +77,7 @@ var fs = require('fs');
 			return;
 		}
 		
+		// for security reasons only allow alphanumerical characters
 		var pattern = /^[a-z0-9]+$/i;
 		if ( !pattern.test( fields.macro))
 		{
@@ -77,11 +88,8 @@ var fs = require('fs');
 		
 		//console.log( "Received: " + files.file.path);
 		runMacro( files.document.path, fields.macro, response);
-
-		//response.end(util.inspect({fields: fields, files: files}));
 	});
-  
-});
+}
 
 function runMacro( path, macro, response)
 {
@@ -120,8 +128,3 @@ function runMacro( path, macro, response)
 }
 
 
-// Listen on port 8000, IP defaults to 127.0.0.1
-server.listen(8000);
-
-// Put a friendly message on the terminal
-console.log("Server running at http://127.0.0.1:8000/");
