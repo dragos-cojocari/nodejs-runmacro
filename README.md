@@ -23,7 +23,7 @@ Installation:
 - install formidable if required: npm install formidable
 
 Run the service: 
-- command: node macroService.js <path to temp folder>
+- command: node macroService.js "path to temp folder"
 
 Access the service programatically:
 - client/runRemoteMacro.bat
