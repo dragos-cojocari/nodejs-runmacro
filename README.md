@@ -3,7 +3,7 @@
 Run Word macros in a node.js server
 
 Usage: POST request on /macro with two form parameters
-- macro: the name of the macro to run
+- macro: the name of the macro to run. Only alphanumerical characters are permitted
 - document: the Word document
 
 Response:
