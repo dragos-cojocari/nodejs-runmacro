@@ -9,11 +9,11 @@ API:
 		- macro: the name of the macro to run. Only alphanumerical characters are permitted
 		- document: the Word document
 
-Response:
+Response: 
 - 400 if the parameters are not provided-
 - the Word document after the macro was executed on it
    
-Dependencies:
+Dependencies: 
 - node.js modules: formidable  
 - Windows cscript engine 
 - Microsoft Word must be installed on the same machine
@@ -22,8 +22,8 @@ Installation:
 - copy the js and vbs file in a location visible to node.js
 - install formidable if required: npm install formidable
 
-Run the service:
--command: node macroService.js <path to temp folder>
+Run the service: 
+- command: node macroService.js <path to temp folder>
 
 Access the service programatically:
 - client/runRemoteMacro.bat
