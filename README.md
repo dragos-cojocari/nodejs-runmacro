@@ -22,7 +22,9 @@ Installation:
 Running the service:
 -command: node macroService.js <path to temp folder>
 
-You can use the example HTML form and the test Word document, macro is insertDate.  
+Accessing the service programatically:
+- client/runRemoteMacro.bat
 
-
-
+Test artifacts:
+- example/testMacroService.html 
+- example/testMacro.doc with the insertDate date
