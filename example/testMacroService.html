@@ -1,0 +1,43 @@
+<!--
+//----------------------------------------------------------------------------------
+// Author: Dragos Cojocari
+// Last modified date: 2015.07.29
+// DISCLAIMER: the example is provided as-is without warranty of any kind, express or implied.
+// LICENSE: you can freely use, modify and distribute this file as long as you keep this note
+//----------------------------------------------------------------------------------
+-->
+
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>Run Macro Service</title>
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+
+		<div style="width:400px; margin:0 auto; border: 1px solid; padding: 5px">
+		
+			<h3 style="text-align: center">Run Macro Service</h3>
+			
+			
+			<form action=" http://127.0.0.1:8000/macro" enctype="multipart/form-data" method="post">
+			
+				<br/>
+				Macro: <input type="text" name="macro" size="40">
+				<br/><br/>
+				
+				Document: <input type="file" name="document" size="40">
+				<br/><br/>
+				
+				<p style="text-align: center"><input type="submit" value="Run Macro"></p>
+				
+			</form>
+			
+			<p style="font-size: small"><em>This example and the associated service is provided as-is without warranty of any kind, express or implied.</em></p>
+			
+		</div>
+
+	</body>
+
+</html>
